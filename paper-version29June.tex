@@ -357,7 +357,8 @@ INDIGO pushed the  state  of  the  art  in  scheduling  technologies  by  implem
 
 Preemptible instances differ from regular ones in that they are subject to be terminated by a incoming request for provision of a normal instance. If bidding is in place, this special type of instance could also be stopped by a higher priority preemptible instance (higher bid). Not all the applications are suitable for preemptible execution, only fault-tolerant ones can withstand this type of execution. On the other side they are highly affordable VMs that allow providers to optimize the usage of their available computing resources (i.e. backfilling).
 
-The opie package provides a set of pluggable extensions for OpenStack Compute (nova) making possible to execute preemptible instances using a modified filter scheduler. This solution has gained great interest from the scientific community and commercial partners, and is under discussions to  be  introduced  in  the  upstream  OpenStack  scheduler.  
+The opie package 
+provides a set of pluggable extensions for?OpenStack Compute (nova)?making possible to execute preemptible instances using a modified filter scheduler. This solution has gained great interest from the scientific community and commercial partners, and is under discussions to  be  introduced  in  the  upstream  OpenStack  scheduler.  
 
 The project has also developed support for advanced scheduling policies such as intelligent job allocation based on fair-share algorithms and the deployment  of customized  virtual elastic clusters using the {\bf Infrastructure Manager}\footnote{https://github.com/indigo-dc/im} ({\tt IM}), which has extended its capabilities in the framework of the project.  {\tt IM} is a tool to deploy complex and customized virtual infrastructures on IaaS Cloud deployments (such as AWS, OpenStack, etc.). It automates the deployment, configuration, software installation, monitoring and update of the virtual infrastructure on multiple Cloud back-ends. It is used by the INDIGO Orchestrator (see section \ref{sec:paas}) in order to provision and configure the virtual infrastructure required to support the scientific applications involved in the project.
 
@@ -365,7 +366,7 @@ In OpenStack based IaaS private clouds the computing and storage resources are s
 
 This rigid resource allocation model strongly limits the global efficiency of the data centres, which aim to fully utilize their resources for optimizing costs. In the traditional computing clusters the utilization efficiency is maximized through the use of a batch system with sophisticated scheduling algorithms plugged in.
 
-{\bf Synergy}\footnote{https://github.com/indigo-dc/synergy-service} is an advanced service interoperable with the OpenStack components, which implements a new resource provisioning model based on pluggable scheduling algorithms. It allows to maximize the resource usage, at the same time guaranteeing a fair distribution of resources among users and groups. The service also provides a persistent queuing mechanism for handling those user requests exceeding the current overall resource capacity. These requests are processed according to a priority defined by the scheduling algorithm, when the required resources become available.
+{\bf Synergy}\footnote{https://github.com/indigo-dc/synergy-service} is an advanced service interoperable with the OpenStack components, which implements a new resource provisioning model based on pluggable scheduling algorithms. It allows to maximize the resource usage, at the same time guaranteeing a??fair??distribution of resources among users and groups. The service also provides a persistent queuing mechanism for handling those user requests exceeding the current overall resource capacity. These requests are processed according to a priority defined by the scheduling algorithm, when the required resources become available.
 
 The scheduling capabilities of OpenNebula have also been enhanced with the development of {\bf FaSS}\footnote{https://github.com/indigo-dc/one-fass}. In OpenNebula the scheduler is first-in-first-out (FIFO). FaSS grants fair access to dynamic resources priorizing tasks assigned according to an initial weight and to the historical resource usage.
 
@@ -420,9 +421,9 @@ The INDIGO PaaS layer supports both common native APIs as well as the {\bf Open 
 
 For OpenNebula\cite{OPENNEBULA} sites the solution consists in a {\bf Network Orchestrator Wrapper} (NOW) \footnote{https://github.com/indigo-dc/now} and a corresponding backend in the {\bf rOCCI-server}\footnote{https://github.com/the-rocci-project/rOCCI-server}. NOW enforces site-wide policy and network configuration by making sure that only LANs designated by site administrators are made available to users, and that users cannot reuse LANs assigned to others while they remain reserved. NOW has been released with INDIGO, and the backend has been provided as a contribution to upstream rOCCI-server distribution.
 
-For OpenStack, the OpenStack OCCI Interface (OOI) has been extended with support for advanced networking functions provided by OpenStack’s Neutron component such as router, network and subnet setup. The contribution was accepted upstream and is distributed with the OOI implementation.
+For OpenStack, the OpenStack OCCI Interface (OOI) has been extended with support for advanced networking functions provided by OpenStack???s Neutron component such as router, network and subnet setup. The contribution was accepted upstream and is distributed with the OOI implementation.
 
-The networking features of the OCCI gateway for the Amazon’s EC2 API were adjusted making sure that the model of setting up and using local virtual networks is in accordance with the model used in the other cloud management frameworks.
+The networking features of the OCCI gateway for the Amazon???s EC2 API were adjusted making sure that the model of setting up and using local virtual networks is in accordance with the model used in the other cloud management frameworks.
 
 In addition a Virtual Router was implemented allowing networks to span across cloud  sites,  potentially geographically  distant,  so  that  a custom  networking  environment  can  be  setup  even if the resources are allocated in different cloud sites. The virtual router is a virtual machine that can be started via OCCI and makes use of {\bf OpenVPN}\footnote{https://openvpn.net} to implement network tunnels. The Virtual Routers can be intantiated by the PaaS layer to orchestrate the interconnection of virtual machines across cloud providers.
 
@@ -641,54 +642,49 @@ Following the successful examples of other research software
 development projects like, EGEE I, II, III, and EMI, the development,
 maintenance and evolution of the software is taken over by the Product Teams (PTs). PTs are small teams of software developers, fully responsible for the development of a particular software product (or group of tightly related products) compliant with the project's acceptance criteria.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{./figs/Figure5.pdf}
-  \caption{Software lifecycle implementation}
-  \label{fig:5}
-\end{figure}
+% \begin{figure}
+%   \centering
+ %  \includegraphics[width=\textwidth]{./figs/Figure5.pdf}
+ %  \caption{Software lifecycle implementation}
+ %  \label{fig:5}
+% \end{figure}
 
+One of the strong and successful aspect of the software development lifecycle management was the adoption of DevOps methods, practices and tools, like automation of builds, versioning, testing, configuration management, deployment, by using Jenkins Continuous Integration, Ansible or Puppet configuration management, Continuous delivery of artefacts after successful testing. We highlight in the following sections how the DevOps culture was embraced during the INDIGO project. 
 
-Preview releases are made available for evaluation by user communities and
-resource providers through the pilot infrastructures. Release
-candidates are subjected to integration testing, which may include the
-participation of user communities. Once the required release quality is
-attained the software is made available to the general public through
-INDIGO-DataCloud repositories. INDIGO then provides support for the released
-software and manage bug fixes in close coordination with the developers.
+% Preview releases are made available for evaluation by user communities and
+% resource providers through the pilot infrastructures. Release
+% candidates are subjected to integration testing, which may include the
+% participation of user communities. Once the required release quality is
+% attained the software is made available to the general public through
+% INDIGO-DataCloud repositories. INDIGO then provides support for the released
+% software and manage bug fixes in close coordination with the developers.
 
 
 \subsection{Software development process}
 
 
-Software Quality Assurance (SQA) is performed mostly via
-automated actions orchestrated by a tool. Each change in the source code,
-meant to be integrated in the production version, triggers the associated
-quality control checks, defined as jobs in the CI system. These jobs
+Software Quality Assurance (SQA) is performed mostly via automated actions orchestrated by a tool. Each change in the source code,
+meant to be integrated in the production version, triggers the associated quality control checks, defined as jobs in the CI system. These jobs
 themselves are defined by the PTs together with the quality assurance and
-release teams, covering code style checking,
-unit testing, functional testing and, whenever possible, integration testing.
-Some manual steps, e.g. for documentation verification and code review, are
-also required. The requirements were defined early in the
+release teams, covering code style checking, unit testing, functional testing and, whenever possible, integration testing.
+Some manual steps, e.g. for documentation verification and code review, are also required. The requirements were defined early in the
 project lifetime and have evolved into a consolidated document to be
 used in a more broader context \cite{SQA}.
 
-In Figure \ref{fig:6} we depict the project's software
-lifecycle workflow showcasing the interdependencies between
-the quality control, release, maintenance and exploitation activities, together
-with the services involved at each stage. Figure \ref{fig:7} highlights the set of tools and services needed to support the software development process.
+ In Figure \ref{fig:6} we depict the project's software
+ lifecycle workflow showcasing the interdependencies between
+ the quality control, release, maintenance and exploitation activities, together
+ with the services involved at each stage. Figure \ref{fig:7} highlights the set of tools and services needed to support the software development process.
 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{./figs/Figure6.pdf}
-  \caption{Software lifecycle, release, maintenance and exploitation interdependencies.}
-  \label{fig:6}
-\end{figure}
+ \begin{figure}[h]
+   \centering
+   \includegraphics[width=\textwidth]{./figs/Figure6.pdf}
+   \caption{Software lifecycle, release, maintenance and exploitation interdependencies.}
+   \label{fig:6}
+ \end{figure}
 
-
-
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{./figs/Figure7.pdf}
   \caption{Tools and services used to support the software development Product Teams.}
@@ -877,7 +873,7 @@ similar CI/CD pipeline described above. As it can be seen in the Figure
 \ref{fig:15}, with this pipeline in place the application developers were
 provided with both a means to validate the source code before merging and the
 creation of a new versioned Docker image, automatically available in the
-INDIGO-DataCloud’s catalogue for applications i.e. DockerHub’s {\tt
+INDIGO-DataCloud???s catalogue for applications i.e. DockerHub???s {\tt
 indigodatacloudapps} repository.
 
 The novelty introduced in the pipeline above is the validation of the user
@@ -895,24 +891,26 @@ execution for the last available Docker image in the catalogue.
   \label{fig:16}
 \end{figure}
 
+%  \subsection{INDIGO-1 release ({\tt MidnightBlue})}
+
+ \subsection{INDIGO releases}
+
+The success of the DevOps approach was confirmed not only by the two major releases the INDIGO project managed to provide ( see tables  \ref{tab:1} and  \ref{tab:2} for more details of each release) but also by the increase in the quality of the released software that was contributed to upstream distributions
 
 
-\subsection{INDIGO-1 release ({\tt MidnightBlue})}
+% The first INDIGO-DataCloud major release - INDIGO-1 (codename {\tt MidnightBlue}) was released 1st of August 2016. The public availability was announced through:
+% \begin{itemize}
+% \item General announcements
+% \item On the project News:
 
-The first INDIGO-DataCloud major release - INDIGO-1 (codename {\tt MidnightBlue}) was released 1st of August 2016. The public availability was announced through:
+% https://www.indigo-datacloud.eu/news/first-indigo-datacloud-software-release-out
+% \item INDIGO-DataCloud RSS Feed:\\
+% http://repo.indigo-datacloud.eu/INDIGODataCloudNews.rss.xml
+% \item indigo-all mailing-list:\\
+% https://lists.indigo-datacloud.eu/sympa/arc/indigo-all/2016-08/msg00000.html
+% \end{itemize}
 
-\begin{itemize}
-\item General announcements
-\item On the project News:
-
-https://www.indigo-datacloud.eu/news/first-indigo-datacloud-software-release-out
-\item INDIGO-DataCloud RSS Feed:\\
-http://repo.indigo-datacloud.eu/INDIGODataCloudNews.rss.xml
-\item indigo-all mailing-list:\\
-https://lists.indigo-datacloud.eu/sympa/arc/indigo-all/2016-08/msg00000.html
-\end{itemize}
-
-In table \ref{tab:1} we show the INDIGO-1 fact sheet.
+% In table \ref{tab:1} we show the INDIGO-1 fact sheet.
 
 \begin{figure}
   \centering
@@ -921,9 +919,9 @@ In table \ref{tab:1} we show the INDIGO-1 fact sheet.
   \label{tab:1}
 \end{figure}
 
-\subsubsection{Contributions to Upstream Distribution}
+% \subsubsection{Contributions to Upstream Distribution}
 
-Many of the INDIGO-DataCloud solutions released through INDIGO-1 were also contributed to the respective upstream distributions like:
+%  Many of the INDIGO-DataCloud solutions released through INDIGO-1 were also contributed to the respective upstream distributions like:
 
 \begin{itemize}
 \item OpenStack
@@ -957,20 +955,20 @@ OpenStack Preemptible Instances support (extensions)
 \end{itemize}
 
 
-\subsection{INDIGO-2 release ({\tt ElectricIndigo})}
+% \subsection{INDIGO-2 release ({\tt ElectricIndigo})}
 
-The second INDIGO-DataCloud major release - INDIGO-2 (codename {\tt ElectricIndigo}) was made publicly available on April 14th  2017. The release was announced through:
-\begin{itemize}
-\item General announcements
-\begin{itemize}
-\item On the project news: \\
-https://www.indigo-datacloud.eu/news/electricindigo-second-indigo-datacloud-software-release
-\end{itemize}
-\item INDIGO-DataCloud RSS Feed: \\
-http://repo.indigo-datacloud.eu/INDIGODataCloudNews.rss.xml
-\end{itemize}
+% The second INDIGO-DataCloud major release - INDIGO-2 (codename {\tt ElectricIndigo}) was made publicly available on April 14th  2017. The release was announced through:
+% \begin{itemize}
+% \item General announcements
+% \begin{itemize}
+% \item On the project news: \\
+% https://www.indigo-datacloud.eu/news/electricindigo-second-indigo-datacloud-software-release
+% \end{itemize}
+% \item INDIGO-DataCloud RSS Feed: \\
+% http://repo.indigo-datacloud.eu/INDIGODataCloudNews.rss.xml
+% \end{itemize}
 
-In table \ref{tab:2} we show the INDIGO-2 release fact sheet.
+% In table \ref{tab:2} we show the INDIGO-2 release fact sheet.
 
 \begin{figure}
   \centering
@@ -979,61 +977,61 @@ In table \ref{tab:2} we show the INDIGO-2 release fact sheet.
   \label{tab:2}
 \end{figure}
 
-\subsection{Software Stage Rollout}
+% \subsection{Software Stage Rollout}
 
-The INDIGO-DataCloud Staged Rollout is a procedure based on EGI\cite{EGI} Staged Rollout whereby releases of the supported middleware are first deployed and tested by Service Providers who have agreed to be Early Adopter before being widely
-disseminated to all Service Providers.
+% The INDIGO-DataCloud Staged Rollout is a procedure based on EGI\cite{EGI} Staged Rollout whereby releases of the supported middleware are first deployed and tested by % Service Providers who have agreed to be Early Adopter before being widely
+% disseminated to all Service Providers.
 
-This procedure permits testing the artifacts in a production environment and exposing  the software to real endusers.
+% This procedure permits testing the artifacts in a production environment and exposing  the software to real endusers.
 
-This environment is also more heterogeneous than what is possible during the certification and verification phases. The procedure  allows for potential issues to be discovered and workarounds to be swiftly added.
+% This environment is also more heterogeneous than what is possible during the certification and verification phases. The procedure  allows for potential issues to be discovered and workarounds to be swiftly added.
 
-The Staged rollout takes place after the products are made available in the INDIGO-DataCloud repositories and constitute a last step of verification before the products are incorporated in other distributions such as EGI CMS and UMD. Users and site administrators unrelated to INDIGO-DataCloud can participate in the process.
+% The Staged rollout takes place after the products are made available in the INDIGO-DataCloud repositories and constitute a last step of verification before the products are incorporated in other distributions such as EGI CMS and UMD. Users and site administrators unrelated to INDIGO-DataCloud can participate in the process.
 
-\subsection{Software maintenance strategy and updates}
+% \subsection{Software maintenance strategy and updates}
 
-The software maintenance activity focus on the timely release of corrective (bug fixes) and adaptive (new/versions of operating systems and/or cloud management frameworks) changes as well as perfective and preventive ones, following the defined procedures.
+% The software maintenance activity focus on the timely release of corrective (bug fixes) and adaptive (new/versions of operating systems and/or cloud management frameworks) changes as well as perfective and preventive ones, following the defined procedures.
 
-The software support activities concentrate on following closely the different user communities and e-infrastructure sites that use and deploy projects solutions, ensuring that all their requests for support, for changes/improvements are addressed and correctly redirected to the right development teams, in case proven to be bugs in the released software.
+% The software support activities concentrate on following closely the different user communities and e-infrastructure sites that use and deploy projects solutions, ensuring that all their requests for support, for changes/improvements are addressed and correctly redirected to the right development teams, in case proven to be bugs in the released software.
 
-Let us see with an example how the maintenance process of INDIGO-1 has smoothly worked out towards the release of INDIGO-2. Updates continued to be provided on a monthly manner taking in consideration that:
+% Let us see with an example how the maintenance process of INDIGO-1 has smoothly worked out towards the release of INDIGO-2. Updates continued to be provided on a monthly manner taking in consideration that:
 
-\begin{itemize}
-\item After the release of the first INDIGO major release, MidgnightBlue, on August 2016, from the point of view of the schedule the activity entered in the Full Support period, period in which the developers were supposed to fix all the notified issues, according to their priority, and also to add missing or new features and improvements.
-\item The full support period ended February 2017, so that no new features were added to INDIGO-1, but moved, eventually to INDIGO-2 release. During this Standard Support period the developers were due to release only bug fixes.
-\item The Standard Support period ended at the end of March 2017, in concomitance with the release of  the projects’ second major release. No more changes, bug fixes were introduced. Just support for fixing security vulnerabilities for 2 more months, until the end of May 2017.
-\item After May 2017 - INDIGO-1 repositories are closed, and the only supported components will be the ones present in the INDIGO-2 release. And so the MidnightBlue release reached the EndOfLife.
-\end{itemize}
-
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{./figs/Figure9.pdf}
-  \caption{Updates and maintenance of INDIGO-1 ({\tt MidnightBlue})}
-  \label{fig:9}
-\end{figure}
+% \begin{itemize}
+% \item After the release of the first INDIGO major release, MidgnightBlue, on August 2016, from the point of view of the schedule the activity entered in the Full Support period, period in which the developers were supposed to fix all the notified issues, according to their priority, and also to add missing or new features and improvements.
+% \item The full support period ended February 2017, so that no new features were added to INDIGO-1, but moved, eventually to INDIGO-2 release. During this Standard Support period the developers were due to release only bug fixes.
+% \item The Standard Support period ended at the end of March 2017, in concomitance with the release of ??the projects??? second major release. No more changes, bug fixes were introduced. Just support for fixing security vulnerabilities for 2 more months, until the end of May 2017.
+% \item After May 2017 - INDIGO-1 repositories are closed, and the only supported components will be the ones present in the INDIGO-2 release. And so the MidnightBlue release reached the EndOfLife.
+% \end{itemize}
 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{./figs/Figure10.pdf}
-  \caption{Updates and maintenance of INDIGO-2 ({\tt ElectricIndigo})}
-  \label{fig:10}
-\end{figure}
+% \begin{figure}
+%   \centering
+ %  \includegraphics[width=\textwidth]{./figs/Figure9.pdf}
+ %  \caption{Updates and maintenance of INDIGO-1 ({\tt MidnightBlue})}
+%   \label{fig:9}
+% \end{figure}
+
+
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\textwidth]{./figs/Figure10.pdf}
+%   \caption{Updates and maintenance of INDIGO-2 ({\tt ElectricIndigo})}
+%   \label{fig:10}
+% \end{figure}
 
 
 
-During the full support period PTs managed to fix $\sim$ 98 issues and to add $\sim$ 226 new features \& improvements to the released services \& components, as detailed in Figures \ref{fig:9} and {\ref{fig:10}.
+% During the full support period PTs managed to fix $\sim$ 98 issues and to add $\sim$ 226 new features \& improvements to the released services \& components, as detailed in Figures \ref{fig:9} and {\ref{fig:10}.
 
-The above statistics are based on the information provided by the Product Teams in the release notes of each updated service or component. To conclude, we present in Table \ref{tab:3} the updated timelines of the INDIGO - Datacloud Maintenance and Support activities.
+% The above statistics are based on the information provided by the Product Teams in the release notes of each updated service or component. To conclude, we present in Table \ref{tab:3} the updated timelines of the INDIGO - Datacloud Maintenance and Support activities.
 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{./figs/TableIII.pdf}
-  \caption{Support timeline for the INDIGO releases}
-  \label{tab:3}
-\end{figure}
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=\textwidth]{./figs/TableIII.pdf}
+%   \caption{Support timeline for the INDIGO releases}
+%   \label{tab:3}
+% \end{figure}
 
 
 
@@ -1055,15 +1053,15 @@ Figure \ref{fig:11} provides the description of how an application can be built 
 
 This layered scheme includes different elements, that are managed by different actors, that must be minimally understood in order to design, develop, test, deploy and put in production an application.
 
-The lowest layer, Infrastructure as a Service, provides a way to access to the basic resources that the application will use, like computing, storage, network, etc. These resources are physically in a “site”, typically a computing center, either in a research centre, or in a “cloud provider” (like for example commercial cloud services), and are handled by the system managers at those sites, that install a IaaS solution compatible with the INDIGO software stack (e.g. OpenStack, OpenNebula, Google Compute Engine, Microsoft Azure, Amazon EC2). 
+The lowest layer, Infrastructure as a Service, provides a way to access to the basic resources that the application will use, like computing, storage, network, etc. These resources are physically in a ???site???, typically a computing center, either in a research centre, or in a ???cloud provider??? (like for example commercial cloud services), and are handled by the system managers at those sites, that install a IaaS solution compatible with the INDIGO software stack (e.g. OpenStack, OpenNebula, Google Compute Engine, Microsoft Azure, Amazon EC2). 
 
-Accessing through a web interface to a proprietary dashboard, like for example Horizon for OpenStack, a “user” that is granted access to a pool of resources at a site (for example 150 cores in “virtual” machines with 600GB RAM, 3 TB of storage and 1GB network interface) can “launch” a virtual machine, for example a server with 2 cores, 4GB RAM, 100GB of storage and with a certain Linux flavour installed. 
+Accessing through a web interface to a proprietary dashboard, like for example Horizon for OpenStack, a ???user??? that is granted access to a pool of resources at a site (for example 150 cores in ???virtual??? machines with 600GB RAM, 3 TB of storage and 1GB network interface) can ???launch??? a virtual machine, for example a server with 2 cores, 4GB RAM, 100GB of storage and with a certain Linux flavour installed. 
 
-The user can then get access in “console” mode to this machine, for example through a protocol like ssh, and employ it for the tasks required. For example, he can execute a simple script, or can install a web server, etc. When the work is finished the machine can be stopped by the user, liberating so the resources. This is a very basic mode of accessing Cloud services, which shares analogies with the usual access to classical computing services, like for example any remote server or a cluster.
+The user can then get access in ???console??? mode to this machine, for example through a protocol like ssh, and employ it for the tasks required. For example, he can execute a simple script, or can install a web server, etc. When the work is finished the machine can be stopped by the user, liberating so the resources. This is a very basic mode of accessing Cloud services, which shares analogies with the usual access to classical computing services, like for example any remote server or a cluster.
 
 A different way to interact with IaaS services is to use the existing APIs to manage the resources using the web services protocol. Such invocation of services can be made from any program or application, from example from a python script, and even through a web interface. 
 
-Many applications require the setup, launching and interconnection of several (IaaS) services implemented in different virtual machines, and managed under a single control, as a “Platform”. The Platform as a Service (PaaS) layer enables this “orchestration” of IaaS services, and in the case of a “Federated Cloud” they might even be located in different sites. 
+Many applications require the setup, launching and interconnection of several (IaaS) services implemented in different virtual machines, and managed under a single control, as a ???Platform???. The Platform as a Service (PaaS) layer enables this ???orchestration??? of IaaS services, and in the case of a ???Federated Cloud??? they might even be located in different sites. 
 
 
 \begin{figure}
@@ -1076,7 +1074,7 @@ Many applications require the setup, launching and interconnection of several (I
 
 For example, an Apache Web may be launched in site 1, and display the output of a simulation running in a cluster launched on demand in site 2. The Apache Web service may be better supported with a pool of resources using another cloud-oriented solution like Marathon/Mesos.   Launching an application in this context is a non-trivial process, that requires identifying the available resources and launching them via the IaaS services. INDIGO is supporting the TOSCA standard to prepare a template that can be used to automatize this selection and orchestration of services.
 
-However, most researchers are mainly interested in “running” a final application, either accessing it as an existing service, or eventually requesting resources and launching the application themselves, to use it afterwards. This possibility is enabled via the Software as a Service (SaaS) layer.
+However, most researchers are mainly interested in ???running??? a final application, either accessing it as an existing service, or eventually requesting resources and launching the application themselves, to use it afterwards. This possibility is enabled via the Software as a Service (SaaS) layer.
 
 Before continuing to provide different examples and templates based on the previous discussion, we need a few words on the organization from the point of view of the research community.
 
